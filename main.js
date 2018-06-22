@@ -22,7 +22,7 @@ socket.on('DANH_SACH_ONLINE', arrUserInfo=>{
 socket.on('DANG_KY_THAT_BAI',() => 	alert('Vui long chon username khac'));
 
 function openStream(){
-	const config = {audio: false, video: true};
+	const config = {audio: true, video: true};
 	return navigator.mediaDevices.getUserMedia(config);
 }
 function playStream(idVideoTag, stream){
@@ -32,7 +32,7 @@ function playStream(idVideoTag, stream){
 }
 // openStream()
 // .then(stream=> playStream('localStream',stream));
- const peer= new Peer();
+ const peer= new Peer({key:'peerjs',host:'mypeer2512.herokuapp.com',secure:true, port:443});
  peer.on('open',id=>{
  	$('#my-peer').append(id);
  	$('#btnSignUp').click(()=>{
